@@ -1,0 +1,169 @@
+<!doctype html>
+<html ⚡>
+
+<head>
+  <meta charset="utf-8">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <!-- TODO replace canonical link -->
+  <link rel="canonical" href="https://ampbyexample.com/introduction/hello_world/">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
+  <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+  <!-- GOOGLE APIs FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Mr+Dafoe" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+  <style amp-custom>
+    /* amp-list div[role=listitem] {
+      padding: 1rem;
+    } */
+
+    .center {
+      text-align: center;
+      position: fixed;
+      width: 100%;
+      line-height: 75px;
+      height: 75px;
+      padding: 0px;
+    }
+
+    .header {
+      background: #002b36;
+      color: #cb4b16;
+      font-family: 'Mr Dafoe', cursive;
+      font-size: 40px;
+      top: calc(0px);
+    }
+
+    .username {
+      background: #073642;
+      color: #b58900;
+      font-family: 'Roboto', sans-serif;
+      font-size: 30px;
+      top: calc(75px);
+    }
+
+    h1,
+    h2 {
+      text-align: center
+    }
+  </style>
+  <style amp-boilerplate>
+    body {
+      -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      animation: -amp-start 8s steps(1, end) 0s 1 normal both
+    }
+
+    @-webkit-keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+      to {
+        visibility: visible
+      }
+    }
+
+    @-moz-keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+      to {
+        visibility: visible
+      }
+    }
+
+    @-ms-keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+      to {
+        visibility: visible
+      }
+    }
+
+    @-o-keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+      to {
+        visibility: visible
+      }
+    }
+
+    @keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+      to {
+        visibility: visible
+      }
+    }
+  </style>
+  <noscript>
+    <style amp-boilerplate>
+      body {
+        -webkit-animation: none;
+        -moz-animation: none;
+        -ms-animation: none;
+        animation: none
+      }
+    </style>
+  </noscript>
+</head>
+
+<body>
+  <div class="center header">Monte</div>
+  <!-- Show greeting and current total portfolio value -->
+  <amp-list src="http://localhost:3000/endpoint" layout="fixed-height" height="200">
+    <template type="amp-mustache">
+      <div class="center username">{{username}}</div>
+      <br />
+      <h1>{{total_value}}</h1>
+      <hr />
+    </template>
+  </amp-list>
+  <!-- Show list of securities and current equity; if the list is too long, show overflow button -->
+  <amp-list src="http://localhost:3000/endpoint" layout="fixed-height" height="200">
+    <template type="amp-mustache">
+      {{#securities}}
+      <div>
+        <span>{{symbol}}</span>
+        <span>{{equity}}</span>
+      </div>
+      {{/securities}}
+    </template>
+    <div overflow role="button" aria-label="Show more" class="list-overflow ampstart-btn caps">
+      Show more
+    </div>
+  </amp-list>
+  <!-- Show watchlist if it exists -->
+  <amp-list src="http://localhost:3000/endpoint" layout="fixed-height" height="200">
+    <template type="amp-mustache">
+      {{#watchlist}}
+      <div class="watchlist">
+        <span>{{symbol}}</span>
+        <span>{{price}}</span>
+      </div>
+      {{/watchlist}} {{^watchlist}}
+      <p>No watchlist curated.</p>
+      {{/watchlist}}
+    </template>
+    <div overflow role="button" aria-label="Show more" class="list-overflow ampstart-btn caps">
+      Show more
+    </div>
+  </amp-list>
+
+  <!-- Extra lorem ipsum text -->
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis venenatis, metus a tristique aliquet, enim nibh efficitur sem,
+    ut iaculis urna justo eu diam. Nullam cursus sapien et sodales posuere. Vestibulum ante ipsum primis in faucibus orci
+    luctus et ultrices posuere cubilia Curae; Suspendisse potenti. Donec vitae ornare risus. Maecenas eleifend ante vel dui
+    laoreet, et porttitor libero rutrum. Nam arcu mi, ullamcorper at risus et, pulvinar ultrices erat. In pellentesque sem
+    vel purus auctor, ut venenatis tellus tristique. Phasellus molestie diam orci, nec gravida turpis bibendum ut. Sed sagittis
+    aliquet lorem sed dictum.
+  </p>
+</body>
+
+</html>
