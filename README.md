@@ -4,7 +4,7 @@ An exploration of AMP and other web technologies
 ## Setup
 - Configure a JSON endpoint providing an array inside "items"
 
-_Example [json-server](https://www.npmjs.com/package/json-server) endpoint:_
+_Example [json-server](https://www.npmjs.com/package/json-server) endpoint db.json:_
 ```json
 {
     "endpoint": {
@@ -41,5 +41,7 @@ _Example [json-server](https://www.npmjs.com/package/json-server) endpoint:_
     }
 }
 ```
+- Startup json-server
+`json-server --watch db.json`
 
 _NOTE: If not using a json-server endpoint, update `amp-list src` tags in index.html_
