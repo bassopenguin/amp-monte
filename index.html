@@ -24,10 +24,14 @@
     }
 
     .center {
-      text-align: center;
       position: fixed;
-      width: 100%;
       padding: 0px;
+    }
+    .full-width {
+      width: 100%;
+    }
+    .centered-text {
+      text-align: center;
     }
 
     #header {
@@ -124,12 +128,12 @@
 </head>
 
 <body>
-  <div class="center" id="header">Monte</div>
+  <div class="center centered-text full-width" id="header">Monte</div>
   <!-- Show greeting and current total portfolio value -->
   <amp-list src="http://localhost:3000/endpoint" layout="fixed-height" height="200">
     <template type="amp-mustache">
-      <div class="center" id="username">{{username}}</div>
-      <h1 class="center" id="total_value">{{total_value}}</h1>
+      <div class="center centered-text full-width" id="username">{{username}}</div>
+      <h1 class="center centered-text full-width" id="total_value">{{total_value}}</h1>
     </template>
   </amp-list>
   <!-- Show list of securities and current equity; if the list is too long, show overflow button -->
