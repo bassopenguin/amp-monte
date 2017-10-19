@@ -24,6 +24,14 @@
       font-family: 'Roboto', sans-serif;
     }
 
+    td {
+      width: 50%;
+    }
+
+    .label {
+      font-style: italic;
+    }
+
     .center {
       position: fixed;
       padding: 0px;
@@ -53,7 +61,6 @@
       background: #002b36;
       color: #b58900;
       font-size: 30px;
-      font-style: italic;
       top: calc(75px);
       line-height: 50px;
       height: 50px;
@@ -73,6 +80,12 @@
       font-size: 21px;
       top: calc(300px);
       /* height: 200px; */
+    }
+
+    #watchlist {
+      z-index: -2;
+      font-size: 21px;
+      top: calc(500px);
     }
   </style>
   <style amp-boilerplate>
@@ -145,13 +158,14 @@
   <!-- Show greeting and current total portfolio value -->
   <amp-list src="http://localhost:3000/endpoint" layout="fixed-height" height="200">
     <template type="amp-mustache">
-      <div class="center centered-text full-width" id="username">{{username}}</div>
+      <div class="center centered-text full-width label" id="username">{{username}}</div>
       <div class="center centered-text full-width" id="total_value">{{total_value}}</div>
     </template>
   </amp-list>
   <!-- Show list of securities and current equity; if the list is too long, show overflow button -->
   <amp-list src="http://localhost:3000/endpoint" layout="fixed-height" height="200">
     <template type="amp-mustache">
+      <div class="centered-text full-width label" id="securities-label">Owned</div>
       <table class="full-width" id="securities">
         <!-- {{#securities}} -->
         <tr class="centered-text">
@@ -160,22 +174,19 @@
         </tr>
         <!-- {{/securities}} -->
       </table>
-    </template>
-    <div overflow role="button" aria-label="Show more" class="list-overflow ampstart-btn caps">
-      Show more
-    </div>
-  </amp-list>
-  <!-- Show watchlist if it exists -->
-  <amp-list src="http://localhost:3000/endpoint" layout="fixed-height" height="200">
-    <template type="amp-mustache">
-      {{#watchlist}}
-      <div class="watchlist">
-        <span>{{symbol}}</span>
-        <span>{{price}}</span>
-      </div>
-      {{/watchlist}} {{^watchlist}}
+      <hr/>
+      <div class="centered-text full-width label" id="watchlist-label">Watchlist</div>
+      <table class="full-width" id="watchlist">
+        <!-- {{#watchlist}} -->
+        <tr class="centered-text">
+          <td>{{symbol}}</td>
+          <td>{{price}}</td>
+        </tr>
+        <!-- {{/watchlist}}  -->
+      </table>
+      <!-- {{^watchlist}} -->
       <p>No watchlist curated.</p>
-      {{/watchlist}}
+      <!-- {{/watchlist}} -->
     </template>
     <div overflow role="button" aria-label="Show more" class="list-overflow ampstart-btn caps">
       Show more
