@@ -10,13 +10,14 @@
   <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
   <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
   <!-- GOOGLE APIs FONTS -->
-  <link href="https://fonts.googleapis.com/css?family=Mr+Dafoe&text=Monte|Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Mr+Dafoe&text=Monte|Roboto:400,400i" rel="stylesheet">
   <!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> -->
 
   <style amp-custom>
     /* amp-list div[role=listitem] {
       padding: 1rem;
     } */
+
     body {
       background: #002b36;
       color: #839496;
@@ -29,7 +30,7 @@
       padding: 0px;
     }
 
-    .header {
+    #header {
       background: #073642;
       color: #cb4b16;
       font-family: 'Mr Dafoe', cursive;
@@ -39,10 +40,11 @@
       height: 75px;
     }
 
-    .username {
+    #username {
       color: #b58900;
       font-family: 'Roboto', sans-serif;
       font-size: 30px;
+      font-style: italic;
       top: calc(75px);
       line-height: 50px;
       height: 50px;
@@ -122,11 +124,11 @@
 </head>
 
 <body>
-  <div class="center header">Monte</div>
+  <div class="center" id="header">Monte</div>
   <!-- Show greeting and current total portfolio value -->
   <amp-list src="http://localhost:3000/endpoint" layout="fixed-height" height="200">
     <template type="amp-mustache">
-      <div class="center username">{{username}}</div>
+      <div class="center" id="username">{{username}}</div>
       <h1 class="center" id="total_value">{{total_value}}</h1>
     </template>
   </amp-list>
