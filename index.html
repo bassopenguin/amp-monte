@@ -47,6 +47,14 @@
       line-height: 50px;
       height: 50px;
     }
+
+    #total_value {
+      font-family: 'Roboto', sans-serif;
+      font-size: 42px;
+      top: calc(125px);
+      line-height: 75px;
+      height: 75px;
+    }
   </style>
   <style amp-boilerplate>
     body {
@@ -119,9 +127,7 @@
   <amp-list src="http://localhost:3000/endpoint" layout="fixed-height" height="200">
     <template type="amp-mustache">
       <div class="center username">{{username}}</div>
-      <br />
-      <h1>{{total_value}}</h1>
-      <hr />
+      <h1 class="center" id="total_value">{{total_value}}</h1>
     </template>
   </amp-list>
   <!-- Show list of securities and current equity; if the list is too long, show overflow button -->
