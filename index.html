@@ -21,20 +21,24 @@
     body {
       background: #002b36;
       color: #839496;
+      font-family: 'Roboto', sans-serif;
     }
 
     .center {
       position: fixed;
       padding: 0px;
     }
+
     .full-width {
       width: 100%;
     }
+
     .centered-text {
       text-align: center;
     }
 
     #header {
+      z-index: 500;
       background: #073642;
       color: #cb4b16;
       font-family: 'Mr Dafoe', cursive;
@@ -45,8 +49,9 @@
     }
 
     #username {
+      z-index: 250;
+      background: #002b36;
       color: #b58900;
-      font-family: 'Roboto', sans-serif;
       font-size: 30px;
       font-style: italic;
       top: calc(75px);
@@ -55,11 +60,19 @@
     }
 
     #total_value {
-      font-family: 'Roboto', sans-serif;
+      z-index: 125;
+      background: #002b36;
       font-size: 42px;
       top: calc(125px);
       line-height: 75px;
       height: 75px;
+    }
+
+    #securities {
+      z-index: -1;
+      font-size: 21px;
+      top: calc(300px);
+      /* height: 200px; */
     }
   </style>
   <style amp-boilerplate>
@@ -133,18 +146,18 @@
   <amp-list src="http://localhost:3000/endpoint" layout="fixed-height" height="200">
     <template type="amp-mustache">
       <div class="center centered-text full-width" id="username">{{username}}</div>
-      <h1 class="center centered-text full-width" id="total_value">{{total_value}}</h1>
+      <div class="center centered-text full-width" id="total_value">{{total_value}}</div>
     </template>
   </amp-list>
   <!-- Show list of securities and current equity; if the list is too long, show overflow button -->
   <amp-list src="http://localhost:3000/endpoint" layout="fixed-height" height="200">
     <template type="amp-mustache">
-      <table class="full-width">
+      <table class="full-width" id="securities">
         <!-- {{#securities}} -->
-          <tr class="centered-text">
-            <td>{{symbol}}</td>
-            <td>{{equity}}</td>
-          </tr>
+        <tr class="centered-text">
+          <td>{{symbol}}</td>
+          <td>{{equity}}</td>
+        </tr>
         <!-- {{/securities}} -->
       </table>
     </template>
