@@ -135,12 +135,14 @@
   <!-- Show list of securities and current equity; if the list is too long, show overflow button -->
   <amp-list src="http://localhost:3000/endpoint" layout="fixed-height" height="200">
     <template type="amp-mustache">
-      {{#securities}}
-      <div>
-        <span>{{symbol}}</span>
-        <span>{{equity}}</span>
-      </div>
-      {{/securities}}
+      <table class="full-width">
+        <!-- {{#securities}} -->
+          <tr class="centered-text">
+            <td>{{symbol}}</td>
+            <td>{{equity}}</td>
+          </tr>
+        <!-- {{/securities}} -->
+      </table>
     </template>
     <div overflow role="button" aria-label="Show more" class="list-overflow ampstart-btn caps">
       Show more
