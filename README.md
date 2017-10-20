@@ -42,6 +42,9 @@ _Example [json-server](https://www.npmjs.com/package/json-server) endpoint db.js
 }
 ```
 - Startup json-server
-`json-server --watch db.json`
+    - `json-server --watch db.json`
+- Startup json-server with static html and db
+    - `json-server --watch db.json --static /path/to/static/page/`
 
-_NOTE: If not using a json-server endpoint, update `amp-list src` tags in index.html_
+* _NOTE: If not using a json-server endpoint, update `amp-list src` tags in index.html_
+* _NOTE: If using ngrok forwarding, update `amp-list src` tags in index.html_
